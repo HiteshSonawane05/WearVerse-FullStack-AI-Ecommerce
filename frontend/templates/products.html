@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products — Clothes Store</title>
+    <link rel="stylesheet" href="../static/css/products.css">
+    <link rel="stylesheet" href="../static/css/chatbot.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="home.html" class="logo">WearVerse.</a>
+        <div class="nav-links">
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart <span id="cartCount" class="cart-count"></span></a>
+            <a href="login.html" id="authLink">Sign In</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>All Products</h1>
+        <p id="totalCount"></p>
+    </div>
+
+    <div class="page-body">
+
+        <!-- FILTERS SIDEBAR -->
+        <aside class="filters">
+            <h3>FILTER</h3>
+
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+
+            <div class="filter-group">
+                <label>Category</label>
+                <select id="categoryFilter">
+                    <option value="">All</option>
+                    <option value="men">Men</option>
+                    <option value="women">Women</option>
+                    <option value="kids">Kids</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Min Price (₹)</label>
+                <input type="number" id="minPrice" placeholder="0">
+            </div>
+
+            <div class="filter-group">
+                <label>Max Price (₹)</label>
+                <input type="number" id="maxPrice" placeholder="5000">
+            </div>
+
+            <button class="btn-filter" onclick="applyFilters()">APPLY FILTER</button>
+            <button class="btn-clear" onclick="clearFilters()">CLEAR</button>
+        </aside>
+
+        <!-- PRODUCTS GRID -->
+        <main class="products-section">
+            <div class="product-grid" id="productGrid">
+                <!-- products loaded here -->
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination" id="pagination"></div>
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Style Co. All rights reserved.</p>
+    </footer>
+
+    <script src="../static/js/products.js"></script>
+
+    <!-- Chatbot Bubble -->
+    <div class="chat-bubble" id="chatBubble" onclick="toggleChat()">
+        <span class="chat-icon">💬</span>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <div class="chat-logo">
+                     W
+                    <div class="chat-status-dot"></div>
+                </div>
+                <div>
+                    <div class="chat-title">WearVerse Assistant</div>
+                    <div class="chat-subtitle">Ask me anything!</div>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-modes">
+            <button class="mode-btn active" id="btn-query" onclick="setMode('query')">Products</button>
+            <button class="mode-btn" id="btn-policy" onclick="setMode('policy')">Policy</button>
+            <button class="mode-btn" id="btn-agent" onclick="setMode('agent')">Orders</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-bot">Hi! 👋 I am your WearVerse Assistant.<br>Select a mode and ask me anything!</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)"/>
+            <button class="chat-send-btn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <script src="../static/js/chatbot.js"></script>
+</body>
+</html>

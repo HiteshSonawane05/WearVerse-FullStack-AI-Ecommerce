@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — WearVerse</title>
+    <link rel="stylesheet" href="../static/css/checkout.css">
+    <link rel="stylesheet" href="../static/css/chatbot.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="home.html" class="logo">WearVerse.</a>
+        <div class="nav-links">
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html" id="authLink">Sign In</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Checkout</h1>
+    </div>
+
+    <!-- CHECKOUT BODY -->
+    <div class="checkout-wrapper">
+
+        <!-- LEFT - ORDER ITEMS -->
+        <div class="checkout-left">
+
+            <h3>ORDER ITEMS</h3>
+
+            <div id="orderItems" class="order-items">
+                <div class="loading">LOADING...</div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT - PAYMENT -->
+        <div class="checkout-right">
+
+            <h3>ORDER SUMMARY</h3>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="totalAmount">₹0</span>
+            </div>
+
+            <h3 style="margin-top:30px;">PAYMENT METHOD</h3>
+
+            <div class="payment-options">
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="COD" checked>
+                    <span>Cash on Delivery</span>
+                </label>
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="Online">
+                    <span>Online Payment</span>
+                </label>
+            </div>
+
+            <!-- messages -->
+            <div class="error-msg" id="errorMsg"></div>
+            <div class="success-msg" id="successMsg"></div>
+
+            <button class="btn-place-order" id="placeOrderBtn" onclick="placeOrder()">
+                PLACE ORDER
+            </button>
+
+            <a href="cart.html" class="btn-back">← Back to Cart</a>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 WearVerse. All rights reserved.</p>
+    </footer>
+
+    <script src="../static/js/checkout.js"></script>
+
+    <!-- Chatbot Bubble -->
+    <div class="chat-bubble" id="chatBubble" onclick="toggleChat()">
+        <span class="chat-icon">💬</span>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <div class="chat-logo">
+                     W
+                    <div class="chat-status-dot"></div>
+                </div>
+                <div>
+                    <div class="chat-title">WearVerse Assistant</div>
+                    <div class="chat-subtitle">Ask me anything!</div>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-modes">
+            <button class="mode-btn active" id="btn-query" onclick="setMode('query')">Products</button>
+            <button class="mode-btn" id="btn-policy" onclick="setMode('policy')">Policy</button>
+            <button class="mode-btn" id="btn-agent" onclick="setMode('agent')">Orders</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-bot">Hi! 👋 I am your WearVerse Assistant.<br>Select a mode and ask me anything!</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)"/>
+            <button class="chat-send-btn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <script src="../static/js/chatbot.js"></script>
+</body>
+</html>

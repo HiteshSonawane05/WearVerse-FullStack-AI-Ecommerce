@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — Clothes Store</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/chatbot.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="home.html" class="logo">WearVerse.</a>
+        <div class="nav-links">
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html" id="authLink">Sign In</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">New Collection 2026</p>
+            <h1>Wear What<br>You Are</h1>
+            <p class="hero-sub">Fresh styles for every season. Simple, clean, and made for you.</p>
+            <a href="products.html" class="btn-hero">SHOP NOW</a>
+        </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <a href="products.html?category=men" class="category-card">
+                <div class="category-img men"></div>
+                <p>Men</p>
+            </a>
+            <a href="products.html?category=women" class="category-card">
+                <div class="category-img women"></div>
+                <p>Women</p>
+            </a>
+            <a href="products.html?category=kids" class="category-card">
+                <div class="category-img kids"></div>
+                <p>Kids</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="featured">
+        <h2>Featured Products</h2>
+        <div class="product-grid" id="featuredProducts">
+            <!-- products loaded from API -->
+        </div>
+        <div class="view-all">
+            <a href="products.html" class="btn-outline">VIEW ALL PRODUCTS</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 WearVerse. All rights reserved.</p>
+    </footer>
+
+    <script src="../static/js/home.js"></script>
+
+    <!-- Chatbot Bubble -->
+    <div class="chat-bubble" id="chatBubble" onclick="toggleChat()">
+        <span class="chat-icon">💬</span>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <div class="chat-logo">
+                     W
+                    <div class="chat-status-dot"></div>
+                </div>
+                <div>
+                    <div class="chat-title">WearVerse Assistant</div>
+                    <div class="chat-subtitle">Ask me anything!</div>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-modes">
+            <button class="mode-btn active" id="btn-query" onclick="setMode('query')">Products</button>
+            <button class="mode-btn" id="btn-policy" onclick="setMode('policy')">Policy</button>
+            <button class="mode-btn" id="btn-agent" onclick="setMode('agent')">Orders</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-bot">Hi! 👋 I am your WearVerse Assistant.<br>Select a mode and ask me anything!</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)"/>
+            <button class="chat-send-btn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <script src="../static/js/chatbot.js"></script>
+
+</body>
+</html>

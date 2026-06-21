@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart — WearVerse</title>
+    <link rel="stylesheet" href="../static/css/cart.css">
+    <link rel="stylesheet" href="../static/css/chatbot.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="home.html" class="logo">WearVerse.</a>
+        <div class="nav-links">
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html" id="authLink">Sign In</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>Your Cart</h1>
+        <p id="cartCount"></p>
+    </div>
+
+    <!-- CART BODY -->
+    <div class="cart-wrapper">
+
+        <!-- CART ITEMS -->
+        <div class="cart-items" id="cartItems">
+            <div class="loading" id="loadingMsg">LOADING...</div>
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="order-summary" id="orderSummary" style="display:none;">
+            <h3>ORDER SUMMARY</h3>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="totalAmount">₹0</span>
+            </div>
+
+            <button class="btn-checkout" onclick="window.location.href='checkout.html'">
+                PROCEED TO CHECKOUT
+            </button>
+
+            <a href="products.html" class="btn-continue">← Continue Shopping</a>
+        </div>
+
+    </div>
+
+    <!-- EMPTY CART -->
+    <div class="empty-cart" id="emptyCart" style="display:none;">
+        <p>Your cart is empty.</p>
+        <a href="products.html" class="btn-shop">START SHOPPING</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 WearVerse. All rights reserved.</p>
+    </footer>
+
+    <script src="../static/js/cart.js"></script>
+
+    <!-- Chatbot Bubble -->
+    <div class="chat-bubble" id="chatBubble" onclick="toggleChat()">
+        <span class="chat-icon">💬</span>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <div class="chat-logo">
+                     W
+                    <div class="chat-status-dot"></div>
+                </div>
+                <div>
+                    <div class="chat-title">WearVerse Assistant</div>
+                    <div class="chat-subtitle">Ask me anything!</div>
+                </div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-modes">
+            <button class="mode-btn active" id="btn-query" onclick="setMode('query')">Products</button>
+            <button class="mode-btn" id="btn-policy" onclick="setMode('policy')">Policy</button>
+            <button class="mode-btn" id="btn-agent" onclick="setMode('agent')">Orders</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg msg-bot">Hi! 👋 I am your WearVerse Assistant.<br>Select a mode and ask me anything!</div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)"/>
+            <button class="chat-send-btn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <script src="../static/js/chatbot.js"></script>
+</body>
+</html>
