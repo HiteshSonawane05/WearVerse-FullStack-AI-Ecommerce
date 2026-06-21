@@ -131,12 +131,10 @@ Visit `http://127.0.0.1:8000/docs` for the interactive Swagger UI.
 
 *(Screenshots below — add more as the project evolves, including the chatbot answering live queries.)*
 
-```
 ![Home Page](screenshots/home.png)
 ![Products Page](screenshots/products.png)
 ![Cart Page](screenshots/cart.png)
 ![Checkout Page](screenshots/checkout.png)
-```
 
 ## Known Limitations / Future Improvements
 
