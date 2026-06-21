@@ -146,3 +146,5 @@ Visit `http://127.0.0.1:8000/docs` for the interactive Swagger UI.
 ## Author
 
 Built by Hitesh Sonawane as a portfolio project to demonstrate full-stack development and practical AI/LLM integration skills.
+
+🔗 [LinkedIn](https://www.linkedin.com/in/hitesh-sonawane-014802376)
